@@ -2,7 +2,7 @@
 
 M.Tech (AIML) · Machine Learning · Assignment 2
 
-**Live Streamlit app:** `<PASTE STREAMLIT COMMUNITY CLOUD LINK HERE>`
+**Live Streamlit app:** https://faizapcos.streamlit.app/
 
 ---
 
@@ -42,7 +42,7 @@ The goal of this project is to build and compare **five machine-learning classif
 
 ## c. GitHub repository link
 
-**Repository:** `<PASTE GITHUB REPOSITORY LINK HERE>`
+**Repository:** https://github.com/faizamumtazrbl4-cell/ML_Assignment2
 
 ```
 project-folder/
