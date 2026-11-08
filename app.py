@@ -225,7 +225,7 @@ with tab_me:
             fsz_l = c1.number_input("Avg follicle size – left (mm)", 0.0, 40.0, value=None, placeholder="e.g. 15")
             fsz_r = c2.number_input("Avg follicle size – right (mm)", 0.0, 40.0, value=None, placeholder="e.g. 16")
 
-        go = st.form_submit_button("✨  Show my results", width="stretch")
+        go = st.form_submit_button("✨  Show my results")
 
     if go:
         core = {
@@ -282,7 +282,7 @@ with tab_me:
                     unsafe_allow_html=True)
         with st.expander("See each model's estimate"):
             st.dataframe(pd.DataFrame({"Model": list(res["probs"]), "Match with PCOS pattern": [f"{v*100:.0f}%" for v in res["probs"].values()]}),
-                         hide_index=True, width="stretch")
+                         hide_index=True, use_container_width=True)
 
         if res["age"] < 20 or res["age"] > 48:
             st.markdown('<div class="note">The data this tool learned from covers women aged 20–48, so the estimate is less certain outside that range.</div><br>',
@@ -342,21 +342,21 @@ with tab_eval:
             c1, c2 = st.columns(2)
             with c1:
                 st.markdown("**Confusion matrix**")
-                st.pyplot(plot_confusion(y, pred), width="stretch")
+                st.pyplot(plot_confusion(y, pred), use_container_width=True)
             with c2:
                 if y.nunique() == 2:
                     st.markdown("**ROC curve**")
-                    st.pyplot(plot_roc(y, proba, name), width="stretch")
+                    st.pyplot(plot_roc(y, proba, name), use_container_width=True)
 
             st.markdown("**Classification report**")
             rep = pd.DataFrame(classification_report(y, pred, labels=[0, 1], target_names=["No PCOS", "PCOS"],
                                                      output_dict=True, zero_division=0)).T
             rep["support"] = rep["support"].astype(int)
-            st.dataframe(rep.style.format({"precision": "{:.3f}", "recall": "{:.3f}", "f1-score": "{:.3f}"}), width="stretch")
+            st.dataframe(rep.style.format({"precision": "{:.3f}", "recall": "{:.3f}", "f1-score": "{:.3f}"}), use_container_width=True)
 
             st.markdown("### All five models, side by side")
             table = compare_models(MODELS, X, y)
-            st.dataframe(table.style.format("{:.3f}").highlight_max(color="#F9D3DF"), width="stretch")
+            st.dataframe(table.style.format("{:.3f}").highlight_max(color="#F9D3DF"), use_container_width=True)
             best = table.mean(axis=1).idxmax()
             st.caption(f"🏆 Best average across the six metrics on this file: **{best}**. The best score in each column is highlighted.")
 
