@@ -1,0 +1,6 @@
+model,combos,best_cv_auc,baseline_cv_auc,best_params,gain
+Logistic Regression,28,0.9398202877354007,0.9278974356021454,"{'C': 0.5, 'class_weight': None, 'penalty': 'l1'}",0.01192285213325528
+Decision Tree,288,0.8958259436909248,0.8444163813976789,"{'class_weight': None, 'criterion': 'gini', 'max_depth': 4, 'min_samples_leaf': 10, 'min_samples_split': 2}",0.05140956229324589
+KNN,28,0.9304258449384308,0.8574509908358838,"{'n_neighbors': 21, 'p': 1, 'weights': 'distance'}",0.072974854102547
+Naive Bayes,11,0.9310957352166366,0.9013109897418328,{'var_smoothing': np.float64(0.1)},0.02978474547480381
+SVM,120,0.9390344424514803,0.9332510155959843,"{'C': 0.5, 'class_weight': 'balanced', 'gamma': 0.01, 'kernel': 'rbf'}",0.005783426855495932
